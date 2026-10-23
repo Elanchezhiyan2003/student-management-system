@@ -154,7 +154,7 @@ function App() {
     );
   });
   const inputClassName =
-    "mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-indigo-500 focus:ring-4 focus:ring-indigo-100";
+    "mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-800 shadow-sm outline-none transition placeholder:text-slate-400 focus:border-green-500 focus:ring-4 focus:ring-green-100";
   const secondaryButtonClassName =
     "inline-flex min-h-10 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 focus:outline-none focus:ring-4 focus:ring-slate-100";
 
@@ -186,26 +186,17 @@ function App() {
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-900">
-      <header className="border-b border-white/10 bg-gradient-to-r from-indigo-700 via-indigo-600 to-violet-600 text-white shadow-lg shadow-indigo-900/10">
+      <header className="border-b border-white/10 bg-green-500 text-white shadow-lg shadow-green-900/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-8 sm:px-6 sm:py-10 lg:flex-row lg:items-end lg:justify-between lg:px-8">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.2em] text-indigo-100">
-              Student administration
-            </p>
             <h1 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
               Student Management System
             </h1>
-            <p className="mt-2 max-w-2xl text-sm text-indigo-100 sm:text-base">
-              Keep student records organized and easy to manage.
-            </p>
           </div>
-          <div className="flex w-fit items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 backdrop-blur">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-white/15 text-lg font-bold">
-              {students.length}
-            </span>
-            <div>
+          <div className="flex w-fit items-center gap-3 rounded-xl border border-white/20 bg-white/10 px-4 py-3 backdrop-blur">
+            <div className="row flex items-center gap-3">
               <p className="text-xl font-bold leading-none">{students.length}</p>
-              <p className="mt-1 text-xs text-indigo-100">
+              <p className="mt-1 text-xs text-green-100">
                 {students.length === 1 ? "student" : "students"} registered
               </p>
             </div>
@@ -216,14 +207,14 @@ function App() {
       <div className="mx-auto grid max-w-7xl gap-6 px-4 py-6 sm:px-6 sm:py-8 lg:grid-cols-[minmax(280px,0.8fr)_minmax(0,1.7fr)] lg:px-8">
         <section className="h-fit rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
           <div className="mb-6">
-            <p className="text-xs font-bold uppercase tracking-wider text-indigo-600">
+            {/* <p className="text-xs font-bold uppercase tracking-wider text-green-600">
               {editingId ? "Update record" : "New record"}
-            </p>
+            </p> */}
             <h2 className="mt-1 text-xl font-bold tracking-tight text-slate-900">
               {editingId ? "Edit student" : "Add a student"}
             </h2>
             <p className="mt-1 text-sm text-slate-500">
-              Enter the student's details below.
+              Enter the student's details below
             </p>
           </div>
 
@@ -286,7 +277,7 @@ function App() {
 
             <div className="flex flex-col gap-3 pt-2 sm:flex-row">
               <button
-                className="inline-flex min-h-11 flex-1 items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-200 disabled:cursor-not-allowed disabled:opacity-60"
+                className="inline-flex min-h-11 flex-1 items-center justify-center rounded-xl bg-green-600 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-200 disabled:cursor-not-allowed disabled:opacity-60"
                 type="submit"
                 disabled={saving}
               >
@@ -330,9 +321,6 @@ function App() {
         <section className="min-w-0 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p className="text-xs font-bold uppercase tracking-wider text-indigo-600">
-                Directory
-              </p>
               <h2 className="mt-1 text-xl font-bold tracking-tight text-slate-900">
                 Student records
               </h2>
@@ -349,7 +337,7 @@ function App() {
               Search students
             </label>
             <input
-              className={`${inputClassName} mt-0 pr-20`}
+              className={`${inputClassName} search-input mt-0 pr-20`}
               id="student-search"
               type="search"
               value={search}
@@ -359,7 +347,7 @@ function App() {
             />
             {search && (
               <button
-                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg px-2 py-1 text-xs font-semibold text-indigo-700 hover:bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-indigo-300"
+                className="absolute right-2 top-1/2 -translate-y-1/2 rounded-lg px-2 py-1 text-xs font-semibold text-green-700 hover:bg-green-50 focus:outline-none focus:ring-2 focus:ring-green-300"
                 type="button"
                 onClick={() => setSearch("")}
               >
@@ -374,7 +362,7 @@ function App() {
                 className="flex items-center justify-center gap-3 rounded-xl bg-slate-50 px-4 py-12 text-sm text-slate-500"
                 role="status"
               >
-                <span className="h-5 w-5 animate-spin rounded-full border-2 border-indigo-200 border-t-indigo-600" />
+                <span className="h-5 w-5 animate-spin rounded-full border-2 border-green-200 border-t-green-600" />
                 Loading student records...
               </div>
             ) : filteredStudents.length === 0 ? (
@@ -405,7 +393,7 @@ function App() {
                             {student.email}
                           </p>
                         </div>
-                        <span className="shrink-0 rounded-full bg-indigo-50 px-2.5 py-1 text-xs font-semibold text-indigo-700">
+                        <span className="shrink-0 rounded-full bg-green-50 px-2.5 py-1 text-xs font-semibold text-green-700">
                           Age {student.age}
                         </span>
                       </div>
