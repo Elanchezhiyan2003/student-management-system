@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const studentApi = axios.create({
-  baseURL: "http://localhost:5000/api/students",
+  baseURL: "https://student-management-system-vunc.onrender.com/api/students",
   headers: {
     "Content-Type": "application/json",
   },
