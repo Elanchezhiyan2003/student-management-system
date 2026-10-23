@@ -7,7 +7,9 @@ const cors = require("cors");
 const studentRoutes = require("./routes/studentRoutes");
 
 const app = express();
-const frontendUrl = process.env.CLIENT_URL || "https://student-management-system-ruddy-five.vercel.app/";
+const frontendUrl = new URL(
+  process.env.CLIENT_URL || "https://student-management-system-ruddy-five.vercel.app"
+).origin;
 
 app.get("/", (req, res) => {
   res.send("Student Management System API is running!");
