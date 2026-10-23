@@ -1,8 +1,14 @@
 
 import axios from "axios";
 
+const apiBaseUrl =
+  import.meta.env.VITE_API_URL?.trim() ||
+  (import.meta.env.DEV
+    ? "http://localhost:5000/api/students"
+    : "https://student-management-system-vunc.onrender.com/api/students");
+
 const studentApi = axios.create({
-  baseURL: "https://student-management-system-vunc.onrender.com/api/students",
+  baseURL: apiBaseUrl,
   headers: {
     "Content-Type": "application/json",
   },
